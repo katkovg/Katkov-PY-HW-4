@@ -47,9 +47,11 @@ for current_degree in range(degree, 0, -1):
     else:
         coefficient = determine_coefficient(coef_list)
         if free_number != 0:
-            if coefficient != '1' and coefficient != '0':
+            if coefficient != '1' and coefficient != '0' and coefficient != '-1':
                 file.write(coefficient + 'x' + f' {choice(symbols)} ')
             elif coefficient == '1':
+                file.write('x' + f' {choice(symbols)} ')
+            elif coefficient == '-1':
                 file.write('x' + f' {choice(symbols)} ')
             elif coefficient == '0':
                 file.write('')
@@ -85,61 +87,73 @@ if free_number != 0:
     if k == '2':
 
         coefficient = determine_coefficient(coef_list)
-        if coefficient != '1' and coefficient != '0':
+        if coefficient != '1' and coefficient != '0' and coefficient != '-1':
             file.write(coefficient + 'x**' + str(degree) + f' {choice(symbols)} ' + str(free_number) + ' = 0\n')
         elif coefficient == '0':
             file.write('Программа выдала нулевой коэффициент, невозможно записать выражение в файл\n')
         elif coefficient == '1':
             file.write('x**' +  str(degree) + f' {choice(symbols)} ' + str(free_number) + ' = 0\n')
+        elif coefficient == '-1':
+            file.write('-x**' +  str(degree) + f' {choice(symbols)} ' + str(free_number) + ' = 0\n')
 
         coefficient = determine_coefficient(coef_list)
-        if coefficient != '1' and coefficient != '0':
+        if coefficient != '1' and coefficient != '0' and coefficient != '-1':
             file.write(coefficient + 'x**' + str(degree) + ' = 0\n')
         elif coefficient == '0':
             file.write('Программа выдала нулевой коэффициент, невозможно записать выражение в файл\n')
         elif coefficient == '1':
             file.write('x**' + str(degree) + ' = 0\n')
+        elif coefficient == '-1':
+            file.write('-x**' + str(degree) + ' = 0\n')
 
     # Здесь создаются сразу две строки по типу 'COEFn**k + 25 = 0' и 'COEFn**k = 0' для всех степеней k, которые больше 1 и 2.
     elif k != '1' and k != '2':
 
         coefficient = determine_coefficient(coef_list)
-        if coefficient != '1' and coefficient != '0':
+        if coefficient != '1' and coefficient != '0' and coefficient != '-1':
             file.write(coefficient + 'x**' + str(degree) + f' {choice(symbols)} ' + str(free_number) + ' = 0\n')
         elif coefficient == '0':
             file.write('Программа выдала нулевой коэффициент, невозможно записать выражение в файл\n')
         elif coefficient == '1':
             file.write('x**' + str(degree) + f' {choice(symbols)} ' + str(free_number) + ' = 0\n')
+        elif coefficient == '-1':
+            file.write('-x**' + str(degree) + f' {choice(symbols)} ' + str(free_number) + ' = 0\n')
 
         coefficient = determine_coefficient(coef_list)
-        if coefficient != '1' and coefficient != '0':
+        if coefficient != '1' and coefficient != '0' and coefficient != '-1':
             file.write(coefficient + 'x**' + str(degree) + ' = 0\n')
         elif coefficient == '0':
             file.write('Программа выдала нулевой коэффициент, невозможно записать выражение в файл\n')
         elif coefficient == '1':
             file.write('x**' + str(degree) + ' = 0\n')
+        elif coefficient == '-1':
+            file.write('-x**' + str(degree) + ' = 0\n')
 
     # Данная проверка выводит вторую строку в случае, если степень k равна 1. Вообще говоря, в этом случае выведутся лишь две строки по типу 
     # 'COEFx + 25 = 0' и 'COEFx = 0'. Конкретно эта проверка определяет, какой коэффициент будет стоять перед иксом в строке типа 'COEFx = 0'.
     elif k == '1':
 
         coefficient = determine_coefficient(coef_list)
-        if coefficient != '1' and coefficient != '0':
+        if coefficient != '1' and coefficient != '0' and coefficient != '-1':
             file.write(coefficient + 'x' + ' = 0\n')
         elif coefficient == '0':
             file.write('Программа выдала нулевой коэффициент, невозможно записать выражение в файл\n')
         elif coefficient == '1':
             file.write('x' + ' = 0\n')
+        elif coefficient == '-1':
+            file.write('-x' + ' = 0\n')
 else:
 
     if k != '1':
         coefficient = determine_coefficient(coef_list)
-        if coefficient != '1' and coefficient != '0':
+        if coefficient != '1' and coefficient != '0' and coefficient != '-1':
             file.write(coefficient + 'x**' + str(degree) + ' = 0\n')
         elif coefficient == '0':
             file.write('Программа выдала нулевой коэффициент, невозможно записать выражение в файл\n')
         elif coefficient == '1':
             file.write('x**' + str(degree) + ' = 0\n')
+        elif coefficient == '1':
+            file.write('-x**' + str(degree) + ' = 0\n')
 
 
 file.close()
